@@ -1,0 +1,74 @@
+.post-item {
+    width: 25rem;
+    background-color: rgb(71, 42, 42);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.like-comment {
+    display: flex;
+    justify-content: center;
+}
+
+.card-like {
+    width: 40%;
+    border: solid 1px gray;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 6%;
+}
+.card-like:hover{
+    background-color: #4CAF50;
+}
+.card-comment {
+    width: 40%;
+    border: solid 1px gray;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 6%;
+}
+.card-comment:hover {
+    background-color: #4CAF50;
+}
+
+.list-group-item{
+    background-color: rgb(71, 42, 42);
+    border-bottom: solid 1px grey;
+}
+.txtLikeComment {
+    display: flex;
+    justify-content: space-between;
+}
+.txtLikeComment > div {
+    margin: 0 20px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: center;
+}
+.img-user {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+.comment-content {
+    width: calc(100% - 60px);
+    margin-left: 5px;
+    background-color: rgb(99, 65, 65);
+    border-radius: 10px;
+    padding: 10px;
+}
+.username {
+    font-weight: 600;
+    color: rgb(152, 152, 231);
+}
+.textarea {
+    width: 100%;
+    background-color: rgb(99, 65, 65);
+    color: beige;
+    overflow: hidden;
+    height: 80px;
+}
