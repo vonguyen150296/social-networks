@@ -1,0 +1,33 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 150px;
+}
+
+.login-form-item {
+    width: 340px;
+}
+
+p.login-form-item {
+    cursor: pointer;
+    color: rgb(69, 30, 243) !important;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.login-form input {
+    background-color: rgb(71, 42, 42);
+    color: beige;
+}
+
+.login-form input:focus {
+    background-color: rgb(71, 42, 42);
+    color: beige;
+}
+.login-title {
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+}

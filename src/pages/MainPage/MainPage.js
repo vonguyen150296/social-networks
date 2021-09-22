@@ -17,25 +17,17 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 // import redux
 import { connect } from "react-redux";
 import { fetchPosts } from "../../redux/actions/ActionPosts";
-import { fetchComments } from "../../redux/actions/ActionCompoments";
+import { fetchComments } from "../../redux/actions/ActionComments";
 import { fetchLikes } from "../../redux/actions/ActionLikes";
+import { fetchUsers } from "../../redux/actions/ActionUsers";
 
-// import apiCaller
-import callApi from "../../utils/apiCaller";
 
 class MainPage extends Component {
     componentDidMount() {
-        callApi("/posts", "get", null).then(res => {
-            this.props.fetchPosts(res.data);
-        });
-
-        callApi("/comments", "get", null).then(res => {
-            this.props.fetchComments(res.data);
-        });
-
-        callApi("/likes", "get", null).then(res => {
-            this.props.fetchLikes(res.data);
-        })
+        this.props.fetchPosts();
+        this.props.fetchComments();
+        this.props.fetchLikes();
+        this.props.fetchUsers();
     }
 
 
@@ -68,8 +60,12 @@ class MainPage extends Component {
                     <Switch >
                         <Route path='/home' component={HomePage} />
                         <Route exact path='/about' component={AboutPage} />
-                        <Route exact path='/myprofil' component={MyProfilPage} />
-                        <Route exact path='/signup' component={SignInUpPage} />
+                        <Route exact path="/myprofil">
+                            {this.props.login.length === 0 ? <Redirect to="/signup" /> : <Route exact path='/myprofil' component={MyProfilPage} />}
+                        </Route>
+                        <Route exact path="/signup">
+                            {this.props.login.length === 0 ? <Route exact path='/signup' component={SignInUpPage} /> : <Redirect to="/myprofil" />}
+                        </Route>
                         <Redirect to="/home" />
                     </Switch>
                 </div>
@@ -85,14 +81,16 @@ const mapStateToProps = (state) => {
     return {
         posts: state.posts,
         comments: state.comments,
-        likes: state.likes
+        likes: state.likes,
+        login: state.login
     }
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchPosts: (posts) => { dispatch(fetchPosts(posts)) },
-    fetchComments: (comments) => { dispatch(fetchComments(comments)) },
-    fetchLikes: (likes) => { dispatch(fetchLikes(likes)) }
+    fetchPosts: () => { dispatch(fetchPosts()) },
+    fetchComments: () => { dispatch(fetchComments()) },
+    fetchLikes: () => { dispatch(fetchLikes()) },
+    fetchUsers: () => { dispatch(fetchUsers())}
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainPage));

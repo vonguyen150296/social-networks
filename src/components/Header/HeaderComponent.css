@@ -7,6 +7,8 @@
     background-color: #000;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
 }
 .menu{
     top: 72px;
@@ -14,6 +16,7 @@
     background-color: #000;
     left: calc((100% - 394px) / 2);
     z-index: 1000;
+    border-radius: 10px;
 }
 .header-item {
     padding: 5px !important;
@@ -51,6 +54,9 @@
     background-color: #4CAF50;
     border-radius: 10px;
     color: beige !important;
+}
+.loginTitle {
+    color: beige;
 }
 
 @media only screen and (max-width: 600px){

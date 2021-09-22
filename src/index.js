@@ -6,15 +6,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 // redux
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import appReducers from "./redux/reducers/index";
 import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
+import thunk from 'redux-thunk';
 
-const store = createStore(
-  appReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(appReducers,applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
