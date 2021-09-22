@@ -24,7 +24,7 @@ export const signup = (user) => (dispatch) => {
         if(res){
             var results = [];
             results[0] = res.data;
-            dispatch(addUser(results));
+            dispatch(addUser(res.data));
             dispatch(login(results));
         }
     })

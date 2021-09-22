@@ -182,8 +182,8 @@ class Post extends Component {
 
     render() {
         var { post, comments, likes } = this.props;
-        var likeTXT = likes.length > 0 ? `${likes.length} likes` : "0 like";
-        var commentTXT = comments.length > 0 ? `${comments.length} comments` : "0 comment";
+        var likeTXT = likes.length > 1 ? `${likes.length} likes` : `${likes.length} like`;
+        var commentTXT = comments.length > 1 ? `${comments.length} comments` : `${comments.length} comment`;
         return (
             <div className="card post-item">
                 <div className="userTitle">

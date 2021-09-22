@@ -5,10 +5,11 @@ var initialstate = [];
 const posts = (state = initialstate, actions) => {
     switch (actions.type) {
         case Types.ADD_POSTS:
-            state = actions.posts;
+            if(actions.posts !== undefined ) state = actions.posts;
             return [...state];
         case Types.ADD_POST:
-            return [...state, actions.post];
+            if(actions.post !== undefined) return [...state, actions.post];
+            else return [...state];
         default:
             return [...state];
     }

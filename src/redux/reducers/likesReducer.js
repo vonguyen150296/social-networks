@@ -6,10 +6,11 @@ var initialstate = [];
 const likes = (state = initialstate, actions) => {
     switch (actions.type) {
         case Types.ADD_LIKES:
-            state = actions.likes;
+            if(actions.likes !== undefined) state = actions.likes;
             return [...state];
         case Types.ADD_LIKE:
-            return [...state, actions.like];
+            if(actions.like !== undefined) return [...state, actions.like];
+            else return [...state];
         case Types.DELETE_LIKE:
             var index = findindex(state, actions.id);
             state.splice(index, 1);

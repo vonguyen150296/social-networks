@@ -6,10 +6,11 @@ var initialstate = [];
 const comments = (state = initialstate, actions ) => {
     switch (actions.type) {
         case Types.ADD_COMMENTS :
-            state = actions.comments;
+            if(actions.comments !== undefined) state = actions.comments;
             return [...state];
         case Types.ADD_COMMENT:
-            return [...state, actions.comment];
+            if(actions.comment !== undefined) return [...state, actions.comment];
+            else return {...state};
         case Types.DELETE_COMMENT:
             var index = findindex(state,actions.id);
             state.splice(index, 1);
